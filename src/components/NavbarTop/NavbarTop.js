@@ -2,6 +2,7 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
+import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 
 
@@ -24,6 +25,7 @@ const NavbarTop = () => {
                     <Nav.Link>
                         <Link className='text-decoration-none' to='/home'>Contact us</Link>
                     </Nav.Link>
+                    <Button variant="outline-primary">Login</Button>{' '}
                 </Nav>
             </Container>
         </Navbar>
