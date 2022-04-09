@@ -1,12 +1,13 @@
 import React from 'react';
+import Container from 'react-bootstrap/Container';
 import './Overview.css';
 
 const Overview = () => {
     return (
-        <div className='services container'>
-            <h1>Our Cleaning <span>Services</span></h1>
-            <p>Cleaning eliminates germs along with dirt and dust, resulting in better indoor air quality, leaving a whiff of freshness in its wake. The kitchen and bathroom usually require special attention, as they are known to be one of the germiest places in any house.zz</p>
-        </div>
+        <Container className='services text-center my-5'>
+            <h1 className='fs-1 fw-bold font-monospace'>Our Cleaning <span>Services</span></h1>
+            <p className='text-muted fw-lighter'>Let us use our years of experience, skilled employees, and advanced procedures to ensure a clean and healthy environment for your employees, customers and guests.</p>
+        </Container>
     );
 };
 
