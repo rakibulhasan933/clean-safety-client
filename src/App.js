@@ -4,6 +4,7 @@ import NavbarTop from './components/NavbarTop/NavbarTop';
 import CarouselHeader from './components/CarouselHeader/CarouselHeader';
 import Overview from './components/Overview/Overview';
 import Blogs from './components/Blogs/Blogs';
+import Report from './components/Report/Report';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <CarouselHeader />
       <Overview />
       <Blogs />
+      <Report />
     </div>
   );
 }
