@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarTop from './components/NavbarTop/NavbarTop';
 import CarouselHeader from './components/CarouselHeader/CarouselHeader';
 import Overview from './components/Overview/Overview';
+import Blogs from './components/Blogs/Blogs';
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <NavbarTop />
       <CarouselHeader />
       <Overview />
+      <Blogs />
     </div>
   );
 }
