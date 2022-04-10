@@ -1,0 +1,17 @@
+.notFound {
+    margin-top: 200px;
+}
+
+.notFound h1 {
+    color: brown;
+    font-size: 200px;
+    font-weight: 900;
+}
+
+.notFound h1 span {
+    color: green;
+}
+
+.notFound h2 {
+    color: chartreuse;
+}

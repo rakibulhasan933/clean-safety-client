@@ -1,7 +1,7 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBuilding, faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faBuilding } from '@fortawesome/free-solid-svg-icons'
 import { faPagelines, faSuperpowers } from '@fortawesome/free-brands-svg-icons';
 import './Report.css';
 
