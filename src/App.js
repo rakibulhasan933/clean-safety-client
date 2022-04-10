@@ -6,6 +6,7 @@ import Overview from './components/Overview/Overview';
 import Blogs from './components/Blogs/Blogs';
 import Report from './components/Report/Report';
 import Footer from './components/Footer/Footer';
+import Provider from './components/Provider/Provider';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Overview />
       <Blogs />
       <Report />
+      <Provider />
       <Footer />
     </div>
   );
