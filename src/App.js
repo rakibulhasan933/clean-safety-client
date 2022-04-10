@@ -7,6 +7,7 @@ import Blogs from './components/Blogs/Blogs';
 import Report from './components/Report/Report';
 import Footer from './components/Footer/Footer';
 import Provider from './components/Provider/Provider';
+import Services from './components/Services/Services';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <NavbarTop />
       <CarouselHeader />
       <Overview />
+      <Services />
       <Blogs />
       <Report />
       <Provider />
