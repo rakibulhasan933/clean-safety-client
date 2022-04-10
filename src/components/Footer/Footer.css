@@ -1,0 +1,32 @@
+.footer-head h1 {
+    color: #c5a5e4;
+}
+
+.footer-head h1 span {
+    color: #dd7287;
+}
+
+.footer-head h1 {
+    text-decoration: none;
+}
+
+.footer-area li {
+    padding-bottom: 10px;
+}
+
+.social-media .icon {
+    height: 30px;
+    width: 30px;
+
+    border-radius: 50%;
+    border: 1px solid #028585;
+    padding: 10px;
+}
+
+.color-part {
+    color: #bb304c;
+}
+
+.footer-part p span {
+    color: #bb304c;
+}
