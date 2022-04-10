@@ -1,0 +1,16 @@
+.review-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 1rem;
+
+}
+
+.review-container h1 {
+    font-family: 'Righteous', cursive;
+}
+
+.review-container span {
+    color: rgb(7, 7, 105);
+}

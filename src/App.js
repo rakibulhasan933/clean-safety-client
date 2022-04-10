@@ -8,6 +8,7 @@ import Report from './components/Report/Report';
 import Footer from './components/Footer/Footer';
 import Provider from './components/Provider/Provider';
 import Services from './components/Services/Services';
+import Review from './components/Review/Review';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <Blogs />
       <Report />
       <Provider />
+      <Review />
       <Footer />
     </div>
   );
