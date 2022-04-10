@@ -30,3 +30,12 @@
 .footer-part p span {
     color: #bb304c;
 }
+
+.social-media .icon :hover {
+    color: crimson;
+    background: #bb304c;
+}
+
+.container div li :hover {
+    color: #bb304c;
+}
