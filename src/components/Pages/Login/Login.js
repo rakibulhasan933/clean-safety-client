@@ -1,13 +1,13 @@
 import React from 'react';
 import GoogleButton from 'react-google-button';
 
+
 const Login = () => {
-    // const { singInUsingGoogle } = useAuth();
+
+
 
     const handleGoogleLogin = () => {
-
-
-
+        console.log('click');
     }
     return (
         <div className='text-center py-5'>
