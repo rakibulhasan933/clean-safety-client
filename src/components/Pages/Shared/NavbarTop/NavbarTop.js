@@ -25,7 +25,7 @@ const NavbarTop = () => {
                     <Nav.Link>
                         <Link className='text-decoration-none' to='/home'>Contact us</Link>
                     </Nav.Link>
-                    <Button variant="outline-primary">Login</Button>{' '}
+                    <Button variant="outline-primary"><Link to='/login'>Login</Link></Button>{' '}
                 </Nav>
             </Container>
         </Navbar>
