@@ -1,12 +1,12 @@
 import React from 'react';
 import GoogleButton from 'react-google-button';
-import useAuth from '../../hooks/useAuth';
+import useFirebase from '../../hooks/useFirebase';
 import Footer from '../Shared/Footer/Footer';
 import NavbarTop from '../Shared/NavbarTop/NavbarTop';
 
 
 const Login = () => {
-    const { singInUsingInGoogle } = useAuth();
+    const { singInUsingInGoogle } = useFirebase();
     return (
         <div>
             <NavbarTop />

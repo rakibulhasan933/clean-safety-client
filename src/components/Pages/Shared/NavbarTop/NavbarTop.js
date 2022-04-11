@@ -4,11 +4,11 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
-import useAuth from '../../../hooks/useAuth';
+import useFirebase from '../../../hooks/useFirebase';
 
 
 const NavbarTop = () => {
-    const { user, logout } = useAuth();
+    const { user, logout } = useFirebase();
     return (
         <Navbar bg="light" variant="light">
             <Container>
