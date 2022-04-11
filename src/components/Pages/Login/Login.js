@@ -4,8 +4,6 @@ import GoogleButton from 'react-google-button';
 
 const Login = () => {
 
-
-
     const handleGoogleLogin = () => {
         console.log('click');
     }
