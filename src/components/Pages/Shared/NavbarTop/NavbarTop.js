@@ -5,6 +5,8 @@ import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 
 const NavbarTop = () => {
@@ -30,8 +32,8 @@ const NavbarTop = () => {
                     <Nav.Link>
                         <Link className='text-decoration-none' to='/home'>Contact us</Link>
                     </Nav.Link>
-                    <Button variant="outline-primary"><Link to='/login'>Login</Link></Button>
-                    {user?.email && <Button variant="outline-primary" onClick={logout} >Log out</Button>}
+                    <Button variant="outline-primary"><Link to='/login'>Login <FontAwesomeIcon icon={faArrowRight} /></Link></Button>
+                    {user?.email && <Button variant="outline-primary" onClick={logout}>Log out </Button>}
                 </Nav>
             </Container>
         </Navbar>
