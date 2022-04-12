@@ -4,7 +4,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
-// import useFirebase from '../../../hooks/useFirebase';
 import useAuth from '../../../hooks/useAuth';
 
 
@@ -21,7 +20,7 @@ const NavbarTop = () => {
                         <Link className='text-decoration-none' to='/home'>Home</Link>
                     </Nav.Link>
                     <Nav.Link>
-                        <Link className='text-decoration-none' to='/home'>Services</Link></Nav.Link>
+                        <Link className='text-decoration-none' to='/services'>Services</Link></Nav.Link>
                     <Nav.Link>
                         <Link className='text-decoration-none' to='/dashboard'>Dashboard</Link>
                     </Nav.Link>
