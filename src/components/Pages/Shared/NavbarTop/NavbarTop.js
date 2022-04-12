@@ -32,8 +32,8 @@ const NavbarTop = () => {
                     <Nav.Link>
                         <Link className='text-decoration-none' to='/home'>Contact us</Link>
                     </Nav.Link>
-                    <Button variant="outline-primary"><Link to='/login'>Login <FontAwesomeIcon icon={faArrowRight} /></Link></Button>
-                    {user?.email && <Button variant="outline-primary" onClick={logout}>Log out </Button>}
+                    {user.email ? <Button variant="outline-primary"><Link style={{ textDecoration: 'none' }} to='/login'>Login <FontAwesomeIcon icon={faArrowRight} /></Link></Button> :
+                        <Button variant="outline-primary" onClick={logout}>Log out </Button>}
                 </Nav>
             </Container>
         </Navbar>
