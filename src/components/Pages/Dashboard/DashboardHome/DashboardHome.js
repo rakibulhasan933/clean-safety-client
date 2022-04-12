@@ -1,4 +1,5 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 import Footer from '../../Shared/Footer/Footer';
 import NavbarTop from '../../Shared/NavbarTop/NavbarTop';
 import Sidebar from '../Sidebar/Sidebar';
@@ -13,7 +14,7 @@ const DashboardHome = () => {
                         <Sidebar />
                     </div>
                     <div className="col-md-9">
-                        <h1>Contain</h1>
+                        <Outlet />
                     </div>
                 </div>
             </div>
