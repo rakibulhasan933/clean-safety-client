@@ -1,20 +1,22 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPersonCirclePlus, faStar, faUserPlus, faList, faSitemap } from '@fortawesome/free-solid-svg-icons';
+import './Sidebar.css';
+import { Link } from 'react-router-dom';
 
 
 
 const Sidebar = () => {
     return (
-        <div className='m-1'>
-            <div className="p-1">
+        <div className='m-1 sidebar'>
+            <div className="p-1 dashboard">
                 <h5 className='fw-bold font-monospace'>Dashboard</h5>
-                <ul className='list-unstyled mt-4 fw-bold font-monospace'>
-                    <li className='fw-bold font-monospace'><FontAwesomeIcon icon={faUserPlus} /> Add products</li>
-                    <li className='fw-bold font-monospace'><FontAwesomeIcon icon={faStar} /> Reviews</li>
-                    <li className='fw-bold font-monospace'><FontAwesomeIcon icon={faPersonCirclePlus} /> Make Admin</li>
-                    <li className='fw-bold font-monospace'><FontAwesomeIcon icon={faList} /> Product List</li>
-                    <li className='fw-bold font-monospace'> <FontAwesomeIcon icon={faSitemap} /> Oder List</li>
+                <ul className='list-unstyled mt-4 fw-bold font-monospace '>
+                    <Link style={{ textDecoration: 'none', color: 'blue' }} to='/dashboard'><li className='fw-bold font-monospace sidebar-item'> <FontAwesomeIcon icon={faUserPlus} /> Add products</li></Link>
+                    <Link style={{ textDecoration: 'none', color: 'blue' }} to='/dashboard'><li className='fw-bold font-monospace sidebar-item'><FontAwesomeIcon icon={faStar} /> Reviews</li></Link>
+                    <Link style={{ textDecoration: 'none', color: 'blue' }} to='/dashboard'><li className='fw-bold font-monospace sidebar-item'><FontAwesomeIcon icon={faPersonCirclePlus} /> Make Admin</li></Link>
+                    <Link style={{ textDecoration: 'none', color: 'blue' }} to='/dashboard'><li className='fw-bold font-monospace sidebar-item'><FontAwesomeIcon icon={faList} /> Product List</li></Link >
+                    <Link style={{ textDecoration: 'none', color: 'blue' }} to='/dashboard'><li className='fw-bold font-monospace sidebar-item'> <FontAwesomeIcon icon={faSitemap} /> Oder List</li></Link >
                 </ul>
             </div>
         </div>

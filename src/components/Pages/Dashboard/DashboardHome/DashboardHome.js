@@ -8,7 +8,7 @@ const DashboardHome = () => {
         <div>
             <NavbarTop />
             <div className="container">
-                <div className="row py-3">
+                <div className="row py-2">
                     <div className="col-md-2">
                         <Sidebar />
                     </div>
