@@ -1,34 +1,39 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Container from 'react-bootstrap/Container';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const AddProducts = () => {
     const { register, handleSubmit, reset, formState: { errors }, } = useForm();
-    const [imageURL, setImageURL] = useState(null);
 
     const onSubmit = (data) => {
         const serviceData = {
             name: data.name,
             price: data.price,
             description: data.description,
-            imageURL: imageURL
+            imageURL: data.imageURL
         }
-        console.log(serviceData);
-    }
-    const handleImageUpload = (e) => {
-        const imageData = new FormData();
-        imageData.set('key', '653e47c04775bf54b071a6f09142d5a0')
-        imageData.append('image', e.target.file[0])
-
-        axios.post('https://api.imgbb.com/1/upload', imageData)
-            .then(function (response) {
-                setImageURL(response.data.data.display_url);
+        // console.log(serviceData);
+        axios.post('http://localhost:5000/services', serviceData)
+            .then(res => {
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Successfully added your Services',
+                        showConfirmButton: false,
+                        timer: 2500
+                    })
+                    reset();
+                }
             })
             .catch(function (error) {
                 console.log(error);
             });
     }
+
+
     return (
         <Container>
             <h4 className="font-monospace fw-bold pt-5">Add One More Services <i className="fas fa-hanukiah"></i></h4>
@@ -57,10 +62,9 @@ const AddProducts = () => {
                 />
 
                 <input
-                    {...register("image", { required: true })}
-                    placeholder="Image"
-                    onChange={handleImageUpload}
-                    type="file"
+                    {...register("imageURL", { required: true })}
+                    placeholder="Image Link"
+                    type="url"
                     className="p-2 m-2 w-50 input-field"
                 />
                 <br />
