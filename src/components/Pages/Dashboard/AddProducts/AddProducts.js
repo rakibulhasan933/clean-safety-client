@@ -1,17 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import { useForm } from "react-hook-form";
+import axios from 'axios';
 
 const AddProducts = () => {
-    const {
-        register,
-        handleSubmit,
-        reset,
-        formState: { errors },
-    } = useForm();
+    const { register, handleSubmit, reset, formState: { errors }, } = useForm();
+    const [imageURL, setImageURL] = useState(null);
 
     const onSubmit = (data) => {
-        console.log(data);
+        const serviceData = {
+            name: data.name,
+            price: data.price,
+            description: data.description,
+            imageURL: imageURL
+        }
+        console.log(serviceData);
+    }
+    const handleImageUpload = (e) => {
+        const imageData = new FormData();
+        imageData.set('key', '653e47c04775bf54b071a6f09142d5a0')
+        imageData.append('image', e.target.file[0])
+
+        axios.post('https://api.imgbb.com/1/upload', imageData)
+            .then(function (response) {
+                setImageURL(response.data.data.display_url);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
     return (
         <Container>
@@ -22,13 +38,13 @@ const AddProducts = () => {
 
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input
-                    {...register("title", { required: true })}
-                    placeholder="Title"
+                    {...register("name", { required: true })}
+                    placeholder="name"
                     className="p-2 m-2 w-50 input-field"
                 />
 
                 <input
-                    {...register("details", { required: true })}
+                    {...register("description", { required: true })}
                     placeholder="Description"
                     className="p-2 m-2 w-50 input-field"
                 />
@@ -41,16 +57,10 @@ const AddProducts = () => {
                 />
 
                 <input
-                    className="p-2 m-2 w-50 input-field"
-                    type="number"
-                    name="ratings"
-                    placeholder="ratings"
-                    {...register("review", { required: true, min: 0, max: 5 })}
-                />
-
-                <input
                     {...register("image", { required: true })}
-                    placeholder="Image Link"
+                    placeholder="Image"
+                    onChange={handleImageUpload}
+                    type="file"
                     className="p-2 m-2 w-50 input-field"
                 />
                 <br />
