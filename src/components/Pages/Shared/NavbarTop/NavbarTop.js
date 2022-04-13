@@ -17,24 +17,24 @@ const NavbarTop = () => {
         <Navbar bg="light" variant="light">
             <Container>
                 <Navbar.Brand >
-                    <Link className='text-decoration-none' to='/home'>Clean</Link>
+                    <Link className=' font-monospace text-decoration-none' to='/home'>Clean</Link>
                 </Navbar.Brand>
                 <Nav className="justify-content-end">
                     <Nav.Link>
-                        <Link className='text-decoration-none' to='/home'>Home</Link>
+                        <Link className='font-monospace text-decoration-none' to='/home'>Home</Link>
                     </Nav.Link>
                     <Nav.Link>
-                        <Link className='text-decoration-none' to='/services'>Services</Link></Nav.Link>
+                        <Link className='text-decoration-none font-monospace' to='/services'>Services</Link></Nav.Link>
                     <Nav.Link>
-                        <Link className='text-decoration-none' to='/dashboard'>Dashboard</Link>
+                        <Link className='text-decoration-none font-monospace' to='/dashboard'>Dashboard</Link>
                     </Nav.Link>
                     <Nav.Link>
-                        <Link className='text-decoration-none' to='/home'>About</Link>
+                        <Link className='text-decoration-none font-monospace' to='/home'>About</Link>
                     </Nav.Link>
-                    {user.email ? <Button variant="outline-primary" onClick={logout}>Log out </Button> : <Button variant="outline-primary"><Link style={{ textDecoration: 'none' }} to='/login'>Login <FontAwesomeIcon icon={faArrowRight} /></Link></Button>}
-                    <Nav.Link>
-                        <Link className='text-decoration-none' to='/'><img className='profile-pic' src={user.photoURL} alt="profile" /></Link>
-                    </Nav.Link>
+                    {user.email ? <Button variant="outline-primary font-monospace" onClick={logout}>Log out </Button> : <Button variant="outline-primary login-button"><Link style={{ textDecoration: 'none' }} to='/login'>Login <FontAwesomeIcon icon={faArrowRight} /></Link></Button>}
+                    {user?.email && <Nav className='mx-1'>
+                        <img className='profile-pic' src={user.photoURL} alt="profile" />
+                    </Nav>}
 
                 </Nav>
             </Container>
