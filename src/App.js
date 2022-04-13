@@ -9,6 +9,7 @@ import Dashboard from './components/Pages/Dashboard/DashboardHome/DashboardHome'
 import ServicesMain from './components/Pages/Services/ServicesMain';
 import AddProducts from './components/Pages/Dashboard/AddProducts/AddProducts';
 import Reviews from './components/Pages/Dashboard/Reviews/Reviews';
+import MakeAdmin from './components/Pages/Dashboard/MakeAdmin/MakeAdmin';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path='/dashboard/' element={<Dashboard />}>
           <Route path='addProducts' element={<AddProducts />} />
           <Route path='reviews' element={<Reviews />} />
+          <Route path='makeAdmin' element={<MakeAdmin />} />
         </Route>
         <Route path='*' element={<NotFound />}></Route>
       </Routes>
