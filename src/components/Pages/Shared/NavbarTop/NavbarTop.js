@@ -12,7 +12,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const NavbarTop = () => {
     const { user, logout } = useAuth() || {};
-    console.log("navbar", user)
+    // console.log("navbar", user)
     return (
         <Navbar bg="light" variant="light">
             <Container>

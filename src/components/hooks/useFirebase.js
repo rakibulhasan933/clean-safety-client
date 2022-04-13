@@ -13,14 +13,14 @@ const useFirebase = () => {
     const singInUsingInGoogle = () => {
         signInWithPopup(auth, googleProvider)
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
                 setUser(result.user)
             })
     }
     useEffect(() => {
         onAuthStateChanged(auth, user => {
             if (user) {
-                console.log("inside user", user);
+                // console.log("inside user", user);
                 setUser(user)
             }
         })

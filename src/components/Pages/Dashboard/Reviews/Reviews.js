@@ -55,6 +55,8 @@ const Reviews = () => {
                     {...register("comments", { required: true })}
                 />
                 <br />
+                {errors.exampleRequired && <span>This field is required</span>}
+                <br />
                 <input
                     className="submit-btn btn btn-info mt-4 mb-3"
                     type="submit"
