@@ -26,8 +26,8 @@ const Checkout = () => {
                     <h1> hello customer</h1>
                 </div>
                 <div className="col-md-5">
-                    <div className="card h-80 shadow-lg p-3 mb-5 bg-body rounded">
-                        <img src={imageURL} className="card-img-top img-fluid  rounded " alt="carpet" />
+                    <div className="card h-80 shadow-lg p-1 mb-2 bg-body rounded">
+                        <img src={imageURL} style={{ width: '440px', height: '300px' }} className="card-img-top img-fluid  rounded" alt="carpet" />
                         <div className="card-body">
                             <h4 className="card-title fs-4 fw-bold font-monospace">{name} </h4>
                             <p className="card-text fw-lighter font-monospace text-muted">{description}</p>
