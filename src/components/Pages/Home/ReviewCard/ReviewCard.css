@@ -13,7 +13,8 @@
     justify-content: end;
 }
 
-.user-photo img {
-    width: 50px;
+.profile-pic {
+    width: 45px;
+    border: 1px solid green;
     border-radius: 50%;
 }

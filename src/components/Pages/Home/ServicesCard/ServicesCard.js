@@ -4,12 +4,12 @@ import './ServicesCard.css';
 
 const ServicesCard = ({ item }) => {
     // console.log(item);
-    const { name, description, photoURL, price } = item;
+    const { name, description, imageURL, price } = item;
     return (
         <section className='service-card-container'>
             <Link to='/' style={{ textDecoration: 'none', color: 'black' }}>
                 <div className='service-card p-2'>
-                    <img src={photoURL} className='img-fluid service-icon py-3' alt="" />
+                    <img src={imageURL} className='img-fluid service-icon py-3' alt="" />
                     <h6>{name}</h6>
                     <h5 className='text-primary'> $ {price} </h5>
                     <p>{description}</p>

@@ -20,6 +20,7 @@ const Reviews = () => {
         const serviceData = {
             name: displayName,
             comments: data.comments,
+            position: data.position,
             imageURL: photoURL
         }
         // console.log(serviceData);
@@ -31,7 +32,7 @@ const Reviews = () => {
                         icon: 'success',
                         title: 'Thank you so much for giving us feedback',
                         showConfirmButton: false,
-                        timer: 2500
+                        timer: 3000
                     })
                     reset();
                 }
@@ -53,6 +54,13 @@ const Reviews = () => {
                     name="comments"
                     placeholder="Comments"
                     {...register("comments", { required: true })}
+                />
+                <br />
+                <input
+                    {...register("position", { required: true })}
+                    placeholder="Position"
+                    type="text"
+                    className="p-2 m-2 w-50 input-field"
                 />
                 <br />
                 {errors.exampleRequired && <span>This field is required</span>}
