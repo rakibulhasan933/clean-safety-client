@@ -61,8 +61,8 @@ const Checkout = () => {
 
                         <input
                             type="submit"
-                            value="Pay With Google Pay"
-                            className="btn btn-info w-25 mt-2"
+                            value="Google Pay"
+                            className="rounded btn btn-outline-dark w-25 mt-2"
 
                         />
                     </form>
