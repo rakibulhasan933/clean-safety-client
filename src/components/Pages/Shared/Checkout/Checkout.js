@@ -1,10 +1,10 @@
+import React, { useEffect, useState } from 'react';
 import { faGooglePay } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect, useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 import Footer from '../Footer/Footer';
 import NavbarTop from '../NavbarTop/NavbarTop';
 import './Checkout.css';
@@ -23,8 +23,21 @@ const Checkout = () => {
     const { name, price, description, imageURL } = service;
     const { register, handleSubmit, reset, formState: { errors }, } = useForm();
 
+    const { user } = useAuth() || {};
+    const { displayName, email } = user;
+
     const onSubmit = (data) => {
-        console.log(data);
+        const oderData = {
+            name: displayName,
+            email: email,
+            productName: name,
+            price: price,
+            phone: data.phone,
+            address: data.address,
+            time: data.time
+        }
+        console.log(oderData);
+
     }
     return (
         <Container>
@@ -39,21 +52,21 @@ const Checkout = () => {
                             {...register("phone", { required: true })}
                             placeholder="Phone number"
                             type="tel"
-                            className="p-2 m-2 w-50 input-field"
+                            className="fw-bold rounded font-monospace p-2 m-2 w-50 input-field"
                         />
 
                         <input
                             {...register("address", { required: true })}
                             placeholder="Address"
                             type="text"
-                            className="p-2 m-2 w-50 input-field"
+                            className="fw-bold rounded font-monospace p-2 m-2 w-50 input-field"
                         />
 
                         <input
                             {...register("time", { required: true })}
                             placeholder="DD/MM/YER"
                             type="datetime-local"
-                            className="p-2 m-2 w-50 input-field"
+                            className=" fw-bold rounded font-monospace p-2 m-2 w-50 input-field"
                         />
                         <br />
 
@@ -62,11 +75,11 @@ const Checkout = () => {
                         <input
                             type="submit"
                             value="Google Pay"
-                            className="rounded btn btn-outline-dark w-25 mt-2"
+                            className=" fw-bold font-monospace rounded btn btn-outline-dark w-25 mt-2"
 
                         />
                     </form>
-                    <h1 className=' mt-5 px-3 fs-2 font-monospace fw-bold'>Pay With Google Pay <span className='p-1 rounded'><FontAwesomeIcon icon={faGooglePay} /></span></h1>
+                    <h1 className=' mt-5 px-3 fs-2 font-monospace fw-bold'>Pay With Google Pay <span className='pay-part shadow-lg p-3 rounded'><FontAwesomeIcon icon={faGooglePay} /></span></h1>
 
                 </div>
                 <div className="col-md-5">
