@@ -10,6 +10,7 @@ import ServicesMain from './components/Pages/Services/ServicesMain';
 import AddProducts from './components/Pages/Dashboard/AddProducts/AddProducts';
 import Reviews from './components/Pages/Dashboard/Reviews/Reviews';
 import MakeAdmin from './components/Pages/Dashboard/MakeAdmin/MakeAdmin';
+import Checkout from './components/Pages/Shared/Checkout/Checkout';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path='/home' element={<Home />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/services' element={<ServicesMain />}></Route>
+        <Route path='/checkout/:id' element={<Checkout />} />
         <Route path='/dashboard/' element={<Dashboard />}>
           <Route path='addProducts' element={<AddProducts />} />
           <Route path='reviews' element={<Reviews />} />
