@@ -5,7 +5,7 @@ const ReviewCard = ({ single }) => {
     // console.log(single);
     const { name, imageURL, position, comments } = single;
     return (
-        <div className='review-card'>
+        <div className='review-card shadow-lg'>
             <div className="d-flex">
                 <div>
                     <img className='profile-pic' src={imageURL} alt="" />
