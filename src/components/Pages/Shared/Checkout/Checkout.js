@@ -8,6 +8,8 @@ import useAuth from '../../../hooks/useAuth';
 import Footer from '../Footer/Footer';
 import NavbarTop from '../NavbarTop/NavbarTop';
 import './Checkout.css';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const Checkout = () => {
     const [service, setService] = useState({})
@@ -36,7 +38,23 @@ const Checkout = () => {
             address: data.address,
             time: data.time
         }
-        console.log(oderData);
+        // console.log(oderData);
+        axios.post('http://localhost:5000/oder', oderData)
+            .then(res => {
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Your Oder Payment successfully',
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+                    reset();
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
 
     }
     return (
