@@ -1,12 +1,33 @@
+import axios from 'axios';
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 import { useForm } from 'react-hook-form';
+import Swal from 'sweetalert2';
 
 
 const MakeAdmin = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = (data) => {
-        console.log(data);
+        const serviceData = {
+            email: data.email
+        }
+        // console.log(serviceData);
+        axios.post('http://localhost:5000/makeAdmin', serviceData)
+            .then(res => {
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Successfully added new Admin',
+                        showConfirmButton: false,
+                        timer: 2500
+                    })
+                    reset();
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
     return (
         <Container>
