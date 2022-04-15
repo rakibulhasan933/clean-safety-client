@@ -6,11 +6,12 @@ import NotFound from './components/Pages/NotFound/NotFound';
 import Login from './components/Pages/Login/Login';
 import AuthProvider from './components/context/AuthProvider';
 import Dashboard from './components/Pages/Dashboard/DashboardHome/DashboardHome';
-import Service from './components/Pages/Services/Service/Service';
 import AddProducts from './components/Pages/Dashboard/AddProducts/AddProducts';
 import Reviews from './components/Pages/Dashboard/Reviews/Reviews';
 import MakeAdmin from './components/Pages/Dashboard/MakeAdmin/MakeAdmin';
-import Checkout from './components/Pages/Shared/Checkout/Checkout';
+import Checkout from './components/Pages/Services/Checkout/Checkout';
+import ServicesMain from './components/Pages/Services/ServicesMain/ServicesMain';
+import Service from './components/Pages/Services/Service/Service';
 
 
 function App() {
@@ -19,8 +20,10 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />}></Route>
         <Route path='/login' element={<Login />}></Route>
-        <Route path='/services' element={<Service />}></Route>
-        <Route path='/checkout/:id' element={<Checkout />} />
+        <Route path='/services' element={<ServicesMain />}>
+          <Route index element={<Service />} />
+          <Route path='checkout/:id' element={<Checkout />} />
+        </Route>
         <Route path='/dashboard/' element={<Dashboard />}>
           <Route path='addProducts' element={<AddProducts />} />
           <Route path='reviews' element={<Reviews />} />

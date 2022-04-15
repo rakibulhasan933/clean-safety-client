@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import NavbarTop from '../../Shared/NavbarTop/NavbarTop';
-import Footer from '../../Shared/Footer/Footer';
 import Overview from '../../Home/Overview/Overview';
 import ServiceCard from '../ServiceCard/ServiceCard';
+import './Service.css';
 
 
 const Service = () => {
@@ -16,7 +15,6 @@ const Service = () => {
     }, [])
     return (
         <div>
-            <NavbarTop />
             <div className="container py-3">
                 <Overview />
                 <div className="container py-2">
@@ -27,7 +25,6 @@ const Service = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
         </div>
     );
 };

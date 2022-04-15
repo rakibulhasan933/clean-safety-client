@@ -6,7 +6,7 @@ const ServiceCard = ({ item }) => {
     const { _id, name, description, imageURL, price } = item;
     return (
         <section className='service-card-container'>
-            <Link to={`*/dashboard/checkout/${_id}`} style={{ textDecoration: 'none', color: 'black' }}>
+            <Link to={`checkout/${_id}`} style={{ textDecoration: 'none', color: 'black' }}>
                 <div className='service-card p-2'>
                     <img src={imageURL} className='img-fluid service-icon py-3' alt="" />
                     <h6 className='fs-4 fw-bold font-monospace'>{name}</h6>

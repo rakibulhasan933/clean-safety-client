@@ -5,8 +5,6 @@ import Container from 'react-bootstrap/Container';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
-import Footer from '../Footer/Footer';
-import NavbarTop from '../NavbarTop/NavbarTop';
 import './Checkout.css';
 import axios from 'axios';
 import Swal from 'sweetalert2';
@@ -59,7 +57,6 @@ const Checkout = () => {
     }
     return (
         <Container>
-            <NavbarTop />
             <div className="row py-5">
                 <h4 className="font-monospace fw-bold pt-2">Oder confirm Services <i className="fas fa-hanukiah"></i></h4>
                 <hr className="w-100 mb-2 mx-auto" />
@@ -111,7 +108,6 @@ const Checkout = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
         </Container>
     );
 };
