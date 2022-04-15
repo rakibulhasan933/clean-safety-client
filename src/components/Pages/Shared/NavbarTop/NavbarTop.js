@@ -29,7 +29,7 @@ const NavbarTop = () => {
                         <Link className='text-decoration-none font-monospace' to='/dashboard'>Dashboard</Link>
                     </Nav.Link>
                     <Nav.Link>
-                        <Link className='text-decoration-none font-monospace' to='/'>About</Link>
+                        <Link className='text-decoration-none font-monospace' to='/blogs'>Blogs</Link>
                     </Nav.Link>
                     {user.email ? <Button variant="outline-primary font-monospace" onClick={logout}>Log out </Button> : <Button variant="outline-primary login-button"><Link style={{ textDecoration: 'none' }} to='/login'>Login <FontAwesomeIcon icon={faArrowRight} /></Link></Button>}
                     {user?.email && <Nav className='mx-1'>

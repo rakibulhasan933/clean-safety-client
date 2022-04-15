@@ -12,6 +12,7 @@ import MakeAdmin from './components/Pages/Dashboard/MakeAdmin/MakeAdmin';
 import Checkout from './components/Pages/Services/Checkout/Checkout';
 import ServicesMain from './components/Pages/Services/ServicesMain/ServicesMain';
 import Service from './components/Pages/Services/Service/Service';
+import Blog from './components/Pages/Blog/Blog';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path='reviews' element={<Reviews />} />
           <Route path='makeAdmin' element={<MakeAdmin />} />
         </Route>
+        <Route path='/blogs' element={<Blog />}></Route>
         <Route path='*' element={<NotFound />}></Route>
       </Routes>
     </AuthProvider>
