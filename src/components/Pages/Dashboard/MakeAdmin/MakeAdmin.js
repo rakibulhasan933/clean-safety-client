@@ -18,7 +18,7 @@ const MakeAdmin = () => {
 
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input
-                    className="p-3 m-3 w-50 input-field"
+                    className="font-monospace fw-bold shadow-lg  bg-body rounded p-3 m-3 w-50 input-field"
                     name="email"
                     placeholder="Email"
                     type="email"
@@ -27,7 +27,7 @@ const MakeAdmin = () => {
                 <br />
 
                 <input
-                    className=" btn btn-info mt-4"
+                    className="font-monospace fw-bold shadow-lg rounded btn btn-info mt-4"
                     type="submit"
                     value="Make as Admin"
                 />
