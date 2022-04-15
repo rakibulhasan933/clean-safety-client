@@ -36,7 +36,7 @@ const AddProducts = () => {
 
     return (
         <Container>
-            <h4 className="font-monospace fw-bold pt-5">Add One More Services <i className="fas fa-hanukiah"></i></h4>
+            <h4 className="font-monospace fw-bold pt-5 ">Add One More Services <i className="fas fa-hanukiah"></i></h4>
 
             <hr className="w-100 mb-4 mx-auto" />
 
@@ -45,36 +45,36 @@ const AddProducts = () => {
                 <input
                     {...register("name", { required: true })}
                     placeholder="name"
-                    className="p-2 m-2 w-50 input-field"
+                    className="font-monospace fw-bold p-2 m-2 w-50 input-field shadow-lg  bg-body rounded"
                 />
 
                 <input
                     {...register("description", { required: true })}
                     placeholder="Description"
-                    className="p-2 m-2 w-50 input-field"
+                    className="font-monospace fw-bold p-2 m-2 w-50 input-field shadow-lg  bg-body rounded"
                 />
 
                 <input
                     {...register("price", { required: true })}
                     placeholder="Price"
                     type="number"
-                    className="p-2 m-2 w-50 input-field"
+                    className="font-monospace fw-bold p-2 m-2 w-50 input-field shadow-lg  bg-body rounded"
                 />
 
                 <input
                     {...register("imageURL", { required: true })}
                     placeholder="Image Link"
                     type="url"
-                    className="p-2 m-2 w-50 input-field"
+                    className="shadow-lg  bg-body rounded font-monospace fw-bold p-2 m-2 w-50 input-field"
                 />
                 <br />
 
-                {errors.exampleRequired && <span>This field is required</span>}
+                {errors.exampleRequired && <span className='font-monospace fw-bold'>This field is required</span>}
 
                 <input
                     type="submit"
                     value="Add"
-                    className="btn btn-info w-25 mt-2"
+                    className="font-monospace fw-bold rounded btn btn-info w-25 mt-2"
                 />
             </form>
         </Container>
