@@ -50,7 +50,7 @@ const Reviews = () => {
 
             <form onSubmit={handleSubmit(onSubmit)}>
                 <textarea
-                    className="input-field w-75 mb-3"
+                    className="input-field w-75 mb-3 font-monospace fw-bold shadow-lg  bg-body rounded"
                     name="comments"
                     placeholder="Comments"
                     {...register("comments", { required: true })}
@@ -60,13 +60,13 @@ const Reviews = () => {
                     {...register("position", { required: true })}
                     placeholder="Position"
                     type="text"
-                    className="p-2 m-2 w-50 input-field"
+                    className=" font-monospace fw-bold p-2 m-2 w-50 input-field shadow-lg  bg-body rounded"
                 />
                 <br />
                 {errors.exampleRequired && <span>This field is required</span>}
                 <br />
                 <input
-                    className="submit-btn btn btn-info mt-4 mb-3"
+                    className="submit-btn btn btn-info mt-4 mb-3 font-monospace fw-bold shadow-lg  rounded"
                     type="submit"
                     value="Review"
                 />
