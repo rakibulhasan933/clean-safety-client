@@ -6,7 +6,7 @@ import NotFound from './components/Pages/NotFound/NotFound';
 import Login from './components/Pages/Login/Login';
 import AuthProvider from './components/context/AuthProvider';
 import Dashboard from './components/Pages/Dashboard/DashboardHome/DashboardHome';
-import ServicesMain from './components/Pages/Services/ServicesMain';
+import Service from './components/Pages/Services/Service/Service';
 import AddProducts from './components/Pages/Dashboard/AddProducts/AddProducts';
 import Reviews from './components/Pages/Dashboard/Reviews/Reviews';
 import MakeAdmin from './components/Pages/Dashboard/MakeAdmin/MakeAdmin';
@@ -18,9 +18,8 @@ function App() {
     <AuthProvider>
       <Routes>
         <Route path='/' element={<Home />}></Route>
-        <Route path='/home' element={<Home />}></Route>
         <Route path='/login' element={<Login />}></Route>
-        <Route path='/services' element={<ServicesMain />}></Route>
+        <Route path='/services' element={<Service />}></Route>
         <Route path='/checkout/:id' element={<Checkout />} />
         <Route path='/dashboard/' element={<Dashboard />}>
           <Route path='addProducts' element={<AddProducts />} />
