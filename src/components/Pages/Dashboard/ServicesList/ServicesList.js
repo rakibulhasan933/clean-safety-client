@@ -12,12 +12,14 @@ const ServicesList = () => {
     }, [])
     return (
         <div className='pb-3'>
-            <h3>Your ordered service list and service status</h3>
+            <h3 className='fw-bold font-monospace'>Your ordered service list and service status</h3>
             <hr />
-            <div className="row">
-                {
-                    services.length && services.map(service => <ServicesListCard key={service._id} service={service} />)
-                }
+            <div className="container p-1">
+                <div className="row">
+                    {
+                        services.length && services.map(service => <ServicesListCard key={service._id} service={service} />)
+                    }
+                </div>
             </div>
         </div>
     );

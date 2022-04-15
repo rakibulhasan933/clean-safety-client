@@ -55,15 +55,17 @@ const ServicesListCard = (props) => {
         })
     };
     return (
-        <div className="card h-100 shadow-lg  bg-body rounded">
-            <img src={imageURL} className="card-img-top" alt="carpet" />
-            <div className="card-body shadow-lg  bg-body rounded">
-                <h4 className="card-title fw-bold font-monospace">{name} </h4>
-                <h5 className="card-title fw-bold font-monospace">Price: $ {price} </h5>
-                <p className="card-text fw-lighter font-monospace">{description} </p>
-            </div>
-            <div className="card-footer shadow-lg  bg-body rounded">
-                <Button onClick={() => handleDeleteProduct(_id)} variant="outline-info fw-bold font-monospace">Deleted</Button>
+        <div className="col-md-4">
+            <div className="card h-25 shadow-lg  bg-body rounded">
+                <img src={imageURL} className="card-img-top" alt="carpet" />
+                <div className="card-body shadow-lg  bg-body rounded">
+                    <h4 className="card-title fw-bold font-monospace">{name} </h4>
+                    <h5 className="card-title fw-bold font-monospace">Price: $ {price} </h5>
+                    <p className="card-text fw-lighter font-monospace">{description} </p>
+                </div>
+                <div className="card-footer shadow-lg  bg-body rounded">
+                    <Button onClick={() => handleDeleteProduct(_id)} variant="outline-info fw-bold font-monospace">Deleted</Button>
+                </div>
             </div>
         </div>
     );
