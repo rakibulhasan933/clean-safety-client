@@ -8,7 +8,7 @@ const ServicesCard = ({ item }) => {
     return (
         <section className='service-card-container'>
             <Link to='/services' style={{ textDecoration: 'none', color: 'black' }}>
-                <div className='service-card p-2'>
+                <div className='service-card p-2 shadow-lg  bg-body rounded'>
                     <img src={imageURL} className='img-fluid service-icon py-3' alt="" />
                     <h6 className='fs-4 fw-bold font-monospace'>{name}</h6>
                     <h5 className='fw-bold font-monospace'> Price = $ {price} </h5>
