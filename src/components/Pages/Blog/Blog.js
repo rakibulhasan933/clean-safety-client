@@ -7,7 +7,7 @@ const Blog = () => {
     return (
         <div>
             <NavbarTop />
-            <div className='container py-4' >
+            <div className='container py-4 ' >
                 <Blogs />
             </div>
             <Footer />
