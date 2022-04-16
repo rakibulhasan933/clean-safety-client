@@ -57,7 +57,7 @@ const ServicesList = () => {
             <div className="container p-1">
                 <div className="row">
                     {
-                        products.map(service => <div className="col-md-4">
+                        products.map(service => <div className="col-md-4" key={service._id}>
                             <div className="card h-25 shadow-lg  bg-body rounded">
                                 <img src={service.imageURL} className="card-img-top" alt="carpet" />
                                 <div className="card-body shadow-lg  bg-body rounded">
