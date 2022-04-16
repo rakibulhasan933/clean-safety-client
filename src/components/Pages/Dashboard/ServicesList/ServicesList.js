@@ -66,7 +66,7 @@ const ServicesList = () => {
                                     <p className="card-text fw-lighter font-monospace">{service.description} </p>
                                 </div>
                                 <div className="card-footer shadow-lg  bg-body rounded">
-                                    <Button onClick={() => handleDeleteProduct(service._id)} variant="outline-info fw-bold font-monospace">Deleted</Button>
+                                    <Button onClick={() => handleDeleteProduct(service._id)} variant="outline-danger fw-bold font-monospace">Deleted</Button>
                                 </div>
                             </div>
                         </div>)
