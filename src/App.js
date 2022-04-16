@@ -14,6 +14,7 @@ import ServicesMain from './components/Pages/Services/ServicesMain/ServicesMain'
 import Service from './components/Pages/Services/Service/Service';
 import Blog from './components/Pages/Blog/Blog';
 import ServicesList from './components/Pages/Dashboard/ServicesList/ServicesList';
+import OderList from './components/Pages/Dashboard/OderList/OderList';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <Route path='reviews' element={<Reviews />} />
           <Route path='makeAdmin' element={<MakeAdmin />} />
           <Route path='servicesList' element={<ServicesList />} />
+          <Route path='oder' element={<OderList />} />
         </Route>
         <Route path='/blogs' element={<Blog />}></Route>
         <Route path='*' element={<NotFound />}></Route>
