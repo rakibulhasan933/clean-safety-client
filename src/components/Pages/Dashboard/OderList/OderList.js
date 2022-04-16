@@ -9,7 +9,7 @@ const OderList = () => {
         fetch('http://localhost:5000/oder')
             .then(res => res.json())
             .then(data => setOder(data))
-    }, [])
+    }, [isDelete])
     const handleDeleteOder = (id) => {
         console.log(id);
 
