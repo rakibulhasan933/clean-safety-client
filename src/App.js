@@ -31,8 +31,8 @@ function App() {
           <Route path='addProducts' element={<AddProducts />} />
           <Route path='reviews' element={<Reviews />} />
           <Route path='makeAdmin' element={<MakeAdmin />} />
+          <Route path='oderList' element={<OderList />} />
           <Route path='servicesList' element={<ServicesList />} />
-          <Route path='oder' element={<OderList />} />
         </Route>
         <Route path='/blogs' element={<Blog />}></Route>
         <Route path='*' element={<NotFound />}></Route>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
 
 const OderList = () => {
     const [oder, setOder] = useState([]);
@@ -13,26 +13,26 @@ const OderList = () => {
             <div className="pb-2">
                 <h3 className='fw-bold font-monospace'>Your ordered service list and service status</h3>
                 <hr />
-                <table className="table">
+                <table className="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">Services Name</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Address</th>
-                            <th scope="col">Phone</th>
-                            <th scope="col"> Date line</th>
-                            <th scope="col">Delete</th>
+                            <th className='fw-bold font-monospace' scope="col">Services</th>
+                            <th className='fw-bold font-monospace' scope="col">Name</th>
+                            <th className='fw-bold font-monospace' scope="col">Phone</th>
+                            <th className='fw-bold font-monospace' scope="col">Date line</th>
+                            <th className='fw-bold font-monospace' scope="col">Address</th>
+                            <th className='fw-bold font-monospace' scope="col">Delete</th>
                         </tr>
                     </thead>
                     {
                         oder.map(od => <tbody>
                             <tr key={od._id}   >
-                                <td>{od.productName} </td>
-                                <td>{od.name} </td>
-                                <td>{od.address} </td>
-                                <td>{od.phone} </td>
-                                <td>{od.time} </td>
-                                <td><Button>Deleted</Button></td>
+                                <td className='fw-bold font-monospace'> {od.productName} </td>
+                                <td className='fw-bold font-monospace'> {od.name} </td>
+                                <td className='fw-bold font-monospace'>{od.phone} </td>
+                                <td className='fw-bold font-monospace'>{od.time} </td>
+                                <td className='fw-bold font-monospace'> {od.address} </td>
+                                <td><Button className='fw-bold font-monospace btn btn-danger' >Deleted</Button></td>
                             </tr>
                         </tbody>)
                     }
