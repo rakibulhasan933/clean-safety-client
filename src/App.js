@@ -15,6 +15,7 @@ import Service from './components/Pages/Services/Service/Service';
 import Blog from './components/Pages/Blog/Blog';
 import ServicesList from './components/Pages/Dashboard/ServicesList/ServicesList';
 import OderList from './components/Pages/Dashboard/OderList/OderList';
+import DashbordIntro from './components/Pages/Dashboard/DashbordIntro/DashbordIntro';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path='checkout/:id' element={<Checkout />} />
         </Route>
         <Route path='/dashboard/' element={<Dashboard />}>
+          <Route index element={<DashbordIntro />} />
           <Route path='addProducts' element={<AddProducts />} />
           <Route path='reviews' element={<Reviews />} />
           <Route path='makeAdmin' element={<MakeAdmin />} />
