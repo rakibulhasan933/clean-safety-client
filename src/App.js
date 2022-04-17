@@ -16,6 +16,7 @@ import Blog from './components/Pages/Blog/Blog';
 import ServicesList from './components/Pages/Dashboard/ServicesList/ServicesList';
 import OderList from './components/Pages/Dashboard/OderList/OderList';
 import DashbordIntro from './components/Pages/Dashboard/DashbordIntro/DashbordIntro';
+import PrivateRoute from './components/Pages/PrivateRoute/PrivateRoute';
 
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
         <Route path='/login' element={<Login />}></Route>
         <Route path='/services' element={<ServicesMain />}>
           <Route index element={<Service />} />
-          <Route path='checkout/:id' element={<Checkout />} />
+          <Route path='checkout/:id' element={<PrivateRoute><Checkout /></PrivateRoute>} />
         </Route>
         <Route path='/dashboard/' element={<Dashboard />}>
           <Route index element={<DashbordIntro />} />
