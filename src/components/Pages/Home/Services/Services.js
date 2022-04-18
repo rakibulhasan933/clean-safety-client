@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
+import Spinner from '../../Shared/Spinner/Spinner';
 import ServicesCard from '../ServicesCard/ServicesCard';
 import './Services.css';
 
@@ -16,9 +17,11 @@ const Services = () => {
     return (
         <section className='container py-2'>
             <div className="service-container">
-                {
-                    services.map(item => <ServicesCard key={item._id} item={item} ></ServicesCard>)
-                }
+                <Suspense fallback={<Spinner />}>
+                    {
+                        services.length && services.map(item => <ServicesCard key={item._id} item={item} ></ServicesCard>)
+                    }
+                </Suspense>
             </div>
         </section>
     );

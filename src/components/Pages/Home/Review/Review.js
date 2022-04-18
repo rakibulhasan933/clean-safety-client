@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
+import Spinner from '../../Shared/Spinner/Spinner';
 import ReviewCard from '../ReviewCard/ReviewCard';
 import './Review.css';
 
