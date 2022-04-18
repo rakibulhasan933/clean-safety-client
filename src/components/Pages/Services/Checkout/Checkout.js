@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { faGooglePay } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Container from 'react-bootstrap/Container';
@@ -8,6 +8,7 @@ import useAuth from '../../../hooks/useAuth';
 import './Checkout.css';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import Spinner from '../../Shared/Spinner/Spinner';
 
 const Checkout = () => {
     const [service, setService] = useState({})
@@ -97,16 +98,18 @@ const Checkout = () => {
                     <h1 className=' mt-5 px-3 fs-2 font-monospace fw-bold'>Pay With Google Pay <span className='pay-part shadow-lg p-3 rounded'><FontAwesomeIcon icon={faGooglePay} /></span></h1>
 
                 </div>
-                <div className="col-md-5">
-                    <div className="card h-80 shadow-lg p-1 mb-2 bg-body rounded">
-                        <img src={imageURL} style={{ width: '440px', height: '300px' }} className="card-img-top img-fluid  rounded" alt="carpet" />
-                        <div className="card-body">
-                            <h4 className="card-title fs-4 fw-bold font-monospace">{name} </h4>
-                            <p className="card-text fw-lighter font-monospace text-muted">{description}</p>
-                            <h5 className='fs-6 fw-bold font-monospace'>Price: $ {price}</h5>
+                <Suspense fallback={<Spinner />}>
+                    <div className="col-md-5">
+                        <div className="card h-80 shadow-lg p-1 mb-2 bg-body rounded">
+                            <img src={imageURL} style={{ width: '440px', height: '300px' }} className="card-img-top img-fluid  rounded" alt="carpet" />
+                            <div className="card-body">
+                                <h4 className="card-title fs-4 fw-bold font-monospace">{name} </h4>
+                                <p className="card-text fw-lighter font-monospace text-muted">{description}</p>
+                                <h5 className='fs-6 fw-bold font-monospace'>Price: $ {price}</h5>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </Suspense>
             </div>
         </Container>
     );
