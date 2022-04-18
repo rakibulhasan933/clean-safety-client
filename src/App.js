@@ -27,7 +27,11 @@ function App() {
         <Route path='/login' element={<Login />}></Route>
         <Route path='/services' element={<ServicesMain />}>
           <Route index element={<Service />} />
-          <Route path='checkout/:id' element={<PrivateRoute><Checkout /></PrivateRoute>} />
+          <Route path='checkout/:id' element={
+            <PrivateRoute>
+              <Checkout></Checkout>
+            </PrivateRoute>
+          } />
         </Route>
         <Route path='/dashboard/' element={<Dashboard />}>
           <Route index element={<DashbordIntro />} />

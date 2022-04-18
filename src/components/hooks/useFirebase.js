@@ -11,11 +11,12 @@ const useFirebase = () => {
     const googleProvider = new GoogleAuthProvider();
 
     const singInUsingInGoogle = () => {
-        signInWithPopup(auth, googleProvider)
-            .then(result => {
-                // console.log(result.user);
-                setUser(result.user)
-            })
+        return signInWithPopup(auth, googleProvider)
+        // .then(result => {
+        //     // console.log(result.user);
+        //     setUser(result.user)
+        // })
+
     }
     useEffect(() => {
         onAuthStateChanged(auth, user => {
@@ -35,6 +36,7 @@ const useFirebase = () => {
     return {
         user,
         logout,
+        // setUser,
         singInUsingInGoogle
     }
 }
