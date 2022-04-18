@@ -29,11 +29,15 @@ function App() {
           <Route index element={<Service />} />
           <Route path='checkout/:id' element={
             <PrivateRoute>
-              <Checkout></Checkout>
+              <Checkout />
             </PrivateRoute>
           } />
         </Route>
-        <Route path='/dashboard/' element={<Dashboard />}>
+        <Route path='/dashboard/' element={
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        }>
           <Route index element={<DashbordIntro />} />
           <Route path='addProducts' element={<AddProducts />} />
           <Route path='reviews' element={<Reviews />} />
