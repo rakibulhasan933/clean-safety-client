@@ -14,11 +14,13 @@ const Review = () => {
     return (
         <section className='review-container'>
             <h1 className='text-center py-5'>Happy <span>Customers</span>, Happy Homes</h1>
-            <div className="review-card-container pb-5">
-                {
-                    review.map(single => <ReviewCard key={single._id} single={single} ></ReviewCard>)
-                }
-            </div>
+            <Suspense fallback={<Spinner />}>
+                <div className="review-card-container pb-5">
+                    {
+                        review.map(single => <ReviewCard key={single._id} single={single} ></ReviewCard>)
+                    }
+                </div>
+            </Suspense>
         </section>
     );
 };
