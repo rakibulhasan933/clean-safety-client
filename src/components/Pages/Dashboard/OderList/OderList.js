@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Swal from 'sweetalert2';
+import Spinner from '../../Shared/Spinner/Spinner';
 
 const OderList = () => {
     const [oder, setOder] = useState([]);
@@ -63,18 +64,20 @@ const OderList = () => {
                             <th className='fw-bold font-monospace' scope="col">Delete</th>
                         </tr>
                     </thead>
-                    {
-                        oder.map(od => <tbody>
-                            <tr key={od._id}   >
-                                <td className='fw-bold font-monospace'> {od.productName} </td>
-                                <td className='fw-bold font-monospace'> {od.name} </td>
-                                <td className='fw-bold font-monospace'>{od.phone} </td>
-                                <td className='fw-bold font-monospace'>{od.time} </td>
-                                <td className='fw-bold font-monospace'> {od.address} </td>
-                                <td><Button onClick={() => handleDeleteOder(od._id)} className='fw-bold font-monospace btn btn-danger'>Deleted</Button></td>
-                            </tr>
-                        </tbody>)
-                    }
+                    <Suspense fallback={<Spinner />}>
+                        {
+                            oder.map(od => <tbody>
+                                <tr key={od._id}   >
+                                    <td className='fw-bold font-monospace'> {od.productName} </td>
+                                    <td className='fw-bold font-monospace'> {od.name} </td>
+                                    <td className='fw-bold font-monospace'>{od.phone} </td>
+                                    <td className='fw-bold font-monospace'>{od.time} </td>
+                                    <td className='fw-bold font-monospace'> {od.address} </td>
+                                    <td><Button onClick={() => handleDeleteOder(od._id)} className='fw-bold font-monospace btn btn-danger'>Deleted</Button></td>
+                                </tr>
+                            </tbody>)
+                        }
+                    </Suspense>
                 </table>
             </div>
         </div>
