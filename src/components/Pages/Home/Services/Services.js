@@ -16,13 +16,15 @@ const Services = () => {
 
     return (
         <section className='container py-2'>
-            <div className="service-container">
-                <Suspense fallback={<Spinner />}>
+            <Suspense fallback={<Spinner />}>
+                <div className="service-container">
+
                     {
-                        services.length && services.map(item => <ServicesCard key={item._id} item={item} ></ServicesCard>)
+                        services.map(item => <ServicesCard key={item._id} item={item} ></ServicesCard>)
                     }
-                </Suspense>
-            </div>
+
+                </div>
+            </Suspense>
         </section>
     );
 };
