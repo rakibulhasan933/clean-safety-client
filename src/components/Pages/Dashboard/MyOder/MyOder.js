@@ -1,5 +1,4 @@
 import React, { Suspense, useEffect, useState } from 'react';
-import { Button } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
 import Spinner from '../../Shared/Spinner/Spinner';
 
