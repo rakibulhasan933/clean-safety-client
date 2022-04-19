@@ -17,6 +17,7 @@ import ServicesList from './components/Pages/Dashboard/ServicesList/ServicesList
 import OderList from './components/Pages/Dashboard/OderList/OderList';
 import DashbordIntro from './components/Pages/Dashboard/DashbordIntro/DashbordIntro';
 import PrivateRoute from './components/Pages/PrivateRoute/PrivateRoute';
+import MyOder from './components/Pages/Dashboard/MyOder/MyOder';
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
           <Route path='makeAdmin' element={<MakeAdmin />} />
           <Route path='oderList' element={<OderList />} />
           <Route path='servicesList' element={<ServicesList />} />
+          <Route path='myOder' element={<MyOder />} />
         </Route>
         <Route path='/blogs' element={<Blog />}></Route>
         <Route path='*' element={<NotFound />}></Route>

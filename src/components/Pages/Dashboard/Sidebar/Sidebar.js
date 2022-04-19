@@ -17,7 +17,7 @@ const Sidebar = () => {
                     <Link style={{ textDecoration: 'none', color: 'blue' }} to='makeAdmin'><li className='fw-bold font-monospace sidebar-item'><FontAwesomeIcon icon={faPersonCirclePlus} /> Make Admin</li></Link>
                     <Link style={{ textDecoration: 'none', color: 'blue' }} to='servicesList'><li className='fw-bold font-monospace sidebar-item'><FontAwesomeIcon icon={faList} /> Product List</li></Link >
                     <Link style={{ textDecoration: 'none', color: 'blue' }} to='oderList'><li className='fw-bold font-monospace sidebar-item'> <FontAwesomeIcon icon={faSitemap} /> Oder List</li></Link >
-                    <Link style={{ textDecoration: 'none', color: 'blue' }} to='/dashboard'><li className='fw-bold font-monospace sidebar-item'> <FontAwesomeIcon icon={faSitemap} /> My Oder List</li></Link >
+                    <Link style={{ textDecoration: 'none', color: 'blue' }} to='myOder'><li className='fw-bold font-monospace sidebar-item'> <FontAwesomeIcon icon={faSitemap} /> My Oder List</li></Link >
                 </ul>
             </div>
         </div>
