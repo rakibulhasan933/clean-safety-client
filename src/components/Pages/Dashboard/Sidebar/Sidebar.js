@@ -10,9 +10,6 @@ import useAuth from '../../../hooks/useAuth';
 const Sidebar = () => {
     const { admin } = useAuth() || {};
 
-
-
-
     return (
         <section className='m-1 sidebar shadow-lg rounded'>
             <h5 className='fw-bold font-monospace text-center'>Dashboard</h5>
