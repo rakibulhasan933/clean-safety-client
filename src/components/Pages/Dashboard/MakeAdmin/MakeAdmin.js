@@ -19,8 +19,9 @@ const MakeAdmin = () => {
             },
             body: JSON.stringify(serviceData)
         })
-            .then(res => {
-                if (res.data.modifiedCount) {
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount) {
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
