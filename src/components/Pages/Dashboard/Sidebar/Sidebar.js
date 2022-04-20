@@ -29,6 +29,12 @@ const Sidebar = () => {
                 <div className="sidebar-item fw-bold font-monospace">
                     <Link style={{ textDecoration: 'none', color: 'blue' }} to='oderList'> <FontAwesomeIcon icon={faSitemap} /> Oder List</Link >
                 </div>
+                <div className="sidebar-item fw-bold font-monospace">
+                    <Link style={{ textDecoration: 'none', color: 'blue' }} to='myOder'> <FontAwesomeIcon icon={faSitemap} /> My Oder List</Link >
+                </div>
+                <div className="sidebar-item fw-bold font-monospace">
+                    <Link style={{ textDecoration: 'none', color: 'blue' }} to='reviews'><FontAwesomeIcon icon={faStar} /> Reviews</Link>
+                </div>
             </div> :
                 <div className="p-1">
                     <div className="sidebar-item fw-bold font-monospace">
