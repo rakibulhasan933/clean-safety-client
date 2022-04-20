@@ -1,26 +1,44 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPersonCirclePlus, faStar, faUserPlus, faList, faSitemap } from '@fortawesome/free-solid-svg-icons';
 import './Sidebar.css';
 import { Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 
 
 const Sidebar = () => {
+    const { admin } = useAuth() || {};
+
+
+
+
     return (
-        <div className='m-1 sidebar shadow-lg rounded'>
-            <div className="p-1 dashboard ">
-                <h5 className='fw-bold font-monospace text-center'>Dashboard</h5>
-                <ul className='list-unstyled mt-4 fw-bold font-monospace '>
-                    <Link style={{ textDecoration: 'none', color: 'blue' }} to='addProducts'><li className='fw-bold font-monospace sidebar-item'> <FontAwesomeIcon icon={faUserPlus} /> Add products</li></Link>
-                    <Link style={{ textDecoration: 'none', color: 'blue' }} to='reviews'><li className='fw-bold font-monospace sidebar-item'><FontAwesomeIcon icon={faStar} /> Reviews</li></Link>
-                    <Link style={{ textDecoration: 'none', color: 'blue' }} to='makeAdmin'><li className='fw-bold font-monospace sidebar-item'><FontAwesomeIcon icon={faPersonCirclePlus} /> Make Admin</li></Link>
-                    <Link style={{ textDecoration: 'none', color: 'blue' }} to='servicesList'><li className='fw-bold font-monospace sidebar-item'><FontAwesomeIcon icon={faList} /> Product List</li></Link >
-                    <Link style={{ textDecoration: 'none', color: 'blue' }} to='oderList'><li className='fw-bold font-monospace sidebar-item'> <FontAwesomeIcon icon={faSitemap} /> Oder List</li></Link >
-                    <Link style={{ textDecoration: 'none', color: 'blue' }} to='myOder'><li className='fw-bold font-monospace sidebar-item'> <FontAwesomeIcon icon={faSitemap} /> My Oder List</li></Link >
-                </ul>
-            </div>
-        </div>
+        <section className='m-1 sidebar shadow-lg rounded'>
+            <h5 className='fw-bold font-monospace text-center'>Dashboard</h5>
+            {admin ? <div className="p-1">
+                <div className="sidebar-item fw-bold font-monospace">
+                    <Link style={{ textDecoration: 'none', color: 'blue' }} to='addProducts'> <FontAwesomeIcon icon={faUserPlus} /> Add products </Link>
+                </div>
+                <div className="sidebar-item fw-bold font-monospace">
+                    <Link style={{ textDecoration: 'none', color: 'blue' }} to='makeAdmin'><FontAwesomeIcon icon={faPersonCirclePlus} /> Make Admin </Link>
+                </div>
+                <div className="sidebar-item fw-bold font-monospace">
+                    <Link style={{ textDecoration: 'none', color: 'blue' }} to='servicesList'><FontAwesomeIcon icon={faList} /> Product List</Link >
+                </div>
+                <div className="sidebar-item fw-bold font-monospace">
+                    <Link style={{ textDecoration: 'none', color: 'blue' }} to='oderList'> <FontAwesomeIcon icon={faSitemap} /> Oder List</Link >
+                </div>
+            </div> :
+                <div className="p-1">
+                    <div className="sidebar-item fw-bold font-monospace">
+                        <Link style={{ textDecoration: 'none', color: 'blue' }} to='myOder'> <FontAwesomeIcon icon={faSitemap} /> My Oder List</Link >
+                    </div>
+                    <div className="sidebar-item fw-bold font-monospace">
+                        <Link style={{ textDecoration: 'none', color: 'blue' }} to='reviews'><FontAwesomeIcon icon={faStar} /> Reviews</Link>
+                    </div>
+                </div>}
+        </section>
     );
 };
 

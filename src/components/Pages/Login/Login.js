@@ -17,9 +17,23 @@ const Login = () => {
         singInUsingInGoogle()
             .then((result) => {
                 // setUser(result.user);
+                const user = result.user;
+                saveUser(user.email, user.displayName);
                 navigate(from, { replace: true })
             })
     };
+
+    const saveUser = (email, displayName) => {
+        const user = { email, displayName };
+        fetch('http://localhost:5000/users', {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then()
+    }
     return (
         <div>
             <NavbarTop />

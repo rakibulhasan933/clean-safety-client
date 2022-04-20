@@ -12,9 +12,15 @@ const MakeAdmin = () => {
             email: data.email
         }
         // console.log(serviceData);
-        axios.post('http://localhost:5000/makeAdmin', serviceData)
+        fetch('http://localhost:5000/users/admin', {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(serviceData)
+        })
             .then(res => {
-                if (res.data.insertedId) {
+                if (res.data.modifiedCount) {
                     Swal.fire({
                         position: 'center',
                         icon: 'success',

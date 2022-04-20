@@ -6,6 +6,7 @@ InitializeAuthentication();
 
 const useFirebase = () => {
     const [user, setUser] = useState({});
+    const [admin, setAdmin] = useState(false);
 
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
@@ -18,6 +19,11 @@ const useFirebase = () => {
         // })
 
     }
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email]);
     useEffect(() => {
         onAuthStateChanged(auth, user => {
             if (user) {
@@ -32,10 +38,12 @@ const useFirebase = () => {
             .then(() => {
                 setUser({});
             })
-    }
+    };
+
     return {
         user,
         logout,
+        admin,
         // setUser,
         singInUsingInGoogle
     }
