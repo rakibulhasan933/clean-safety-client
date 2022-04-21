@@ -11,7 +11,7 @@ const Blogs = () => {
                 <p className='text-muted fw-lighter font-monospace'>We write about industry developments, training, health and safety, eco-friendly cleaning products, recycling practices and advice for working with professional cleaners.</p>
             </div>
             <div className="row row-cols-1 row-cols-md-3 g-4">
-                <div className="col">
+                <div className="col-md-4">
                     <div className="card h-100 shadow-lg  bg-body rounded">
                         <img src='https://i.ibb.co/hD5Kj8p/carpet.jpg' className="card-img-top" alt="carpet" />
                         <div className="card-body shadow-lg  bg-body rounded">
@@ -23,7 +23,7 @@ const Blogs = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col">
+                <div className="col-md-4">
                     <div className="card h-100 shadow-lg  bg-body rounded">
                         <img src='https://i.ibb.co/Wtr6MSn/table.jpg' className="card-img-top" alt="office card" />
                         <div className="card-body shadow-lg  bg-body rounded">
@@ -35,7 +35,7 @@ const Blogs = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col">
+                <div className="col-md-4">
                     <div className="card h-100 shadow-lg  bg-body rounded">
                         <img src='https://i.ibb.co/Js04Dhp/table-desk.jpg' className="card-img-top" alt="office desk" />
                         <div className="card-body shadow-lg  bg-body rounded">
