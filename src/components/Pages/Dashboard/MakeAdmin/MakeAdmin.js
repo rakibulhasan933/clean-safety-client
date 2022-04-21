@@ -1,12 +1,14 @@
-import axios from 'axios';
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
+import useAuth from '../../../hooks/useAuth';
 
 
 const MakeAdmin = () => {
     const { register, handleSubmit, reset } = useForm();
+
+    const { token } = useAuth();
     const onSubmit = (data) => {
         const serviceData = {
             email: data.email
@@ -15,6 +17,7 @@ const MakeAdmin = () => {
         fetch('http://localhost:5000/users/admin', {
             method: 'PUT',
             headers: {
+                'authorization': `Bearer ${token}`,
                 'content-type': 'application/json'
             },
             body: JSON.stringify(serviceData)
