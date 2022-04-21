@@ -7,7 +7,7 @@ import NavbarTop from '../Shared/NavbarTop/NavbarTop';
 
 
 const Login = () => {
-    const { singInUsingInGoogle } = useAuth() || {};
+    const { singInUsingInGoogle, setUser } = useAuth() || {};
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ const Login = () => {
     const handleGoogleLogin = () => {
         singInUsingInGoogle()
             .then((result) => {
-                // setUser(result.user);
+                setUser(result.user);
                 const user = result.user;
                 saveUser(user.email, user.displayName);
                 navigate(from, { replace: true })
@@ -25,7 +25,7 @@ const Login = () => {
 
     const saveUser = (email, displayName) => {
         const user = { email, displayName };
-        fetch('http://localhost:5000/users', {
+        fetch('https://ancient-lowlands-84914.herokuapp.com/users', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
