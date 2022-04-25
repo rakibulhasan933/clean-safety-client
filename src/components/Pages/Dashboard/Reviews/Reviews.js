@@ -24,7 +24,7 @@ const Reviews = () => {
             imageURL: photoURL
         }
         // console.log(serviceData);
-        axios.post('https://ancient-lowlands-84914.herokuapp.com/reviews', serviceData)
+        axios.post('http://localhost:5000/reviews', serviceData)
             .then(res => {
                 if (res.data.insertedId) {
                     Swal.fire({

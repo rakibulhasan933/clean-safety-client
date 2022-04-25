@@ -7,7 +7,7 @@ const ServicesList = () => {
     const [products, setProducts] = useState([]);
     const [isDelete, setIsDelete] = useState(null);
     useEffect(() => {
-        fetch('https://ancient-lowlands-84914.herokuapp.com/services')
+        fetch('http://localhost:5000/services')
             .then(res => res.json())
             .then(data => {
                 setProducts(data);
@@ -26,7 +26,7 @@ const ServicesList = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://ancient-lowlands-84914.herokuapp.com/deleteServices/${id}`, {
+                fetch(`http://localhost:5000/deleteServices/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

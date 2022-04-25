@@ -15,7 +15,7 @@ const Checkout = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        fetch(`https://ancient-lowlands-84914.herokuapp.com/services/${id}`)
+        fetch(`http://localhost:5000/services/${id}`)
             .then(res => res.json())
             .then(data => {
                 setService(data);
@@ -38,7 +38,7 @@ const Checkout = () => {
             time: data.time
         }
         // console.log(oderData);
-        axios.post('https://ancient-lowlands-84914.herokuapp.com/oder', oderData)
+        axios.post('http://localhost:5000/oder', oderData)
             .then(res => {
                 if (res.data.insertedId) {
                     Swal.fire({

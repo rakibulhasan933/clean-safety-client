@@ -8,7 +8,7 @@ const OderPart = () => {
     const [oder, setOder] = useState([]);
 
     useEffect(() => {
-        const url = `https://ancient-lowlands-84914.herokuapp.com/oders?email=${user.email}`
+        const url = `http://localhost:5000/oders?email=${user.email}`
         fetch(url)
             .then(res => res.json())
             .then(data => setOder(data));

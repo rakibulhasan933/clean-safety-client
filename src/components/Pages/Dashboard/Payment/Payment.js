@@ -6,7 +6,7 @@ const Payment = () => {
     const [service, setService] = useState({});
 
     useEffect(() => {
-        fetch(`https://ancient-lowlands-84914.herokuapp.com/services/${id}`)
+        fetch(`http://localhost:5000/services/${id}`)
             .then(res => res.json())
             .then(data => setService(data))
     }, [id]);

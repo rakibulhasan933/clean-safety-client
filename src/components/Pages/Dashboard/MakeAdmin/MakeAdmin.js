@@ -14,7 +14,7 @@ const MakeAdmin = () => {
             email: data.email
         }
         // console.log(serviceData);
-        fetch('https://ancient-lowlands-84914.herokuapp.com/users/admin', {
+        fetch('http://localhost:5000/users/admin', {
             method: 'PUT',
             headers: {
                 'authorization': `Bearer ${token}`,
