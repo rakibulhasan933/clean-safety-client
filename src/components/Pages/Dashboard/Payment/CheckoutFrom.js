@@ -1,66 +1,87 @@
-import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import './common.css';
+import { PaymentElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import React, { useEffect, useState } from 'react';
+import useAuth from '../../../hooks/useAuth';
 
-const CheckoutFrom = ({ service }) => {
-    const { price } = service;
+const CheckoutFrom = () => {
     const stripe = useStripe();
     const elements = useElements();
 
-    const [error, setError] = useState('');
+    const { user } = useAuth() || {};
+
+    const [message, setMessage] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
+
+    useEffect(() => {
+        if (!stripe) {
+            return;
+        }
+
+        const clientSecret = new URLSearchParams(window.location.search).get(
+            "payment_intent_client_secret"
+        );
+
+        if (!clientSecret) {
+            return;
+        }
+
+        stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
+            switch (paymentIntent.status) {
+                case "succeeded":
+                    setMessage("Payment succeeded!");
+                    break;
+                case "processing":
+                    setMessage("Your payment is processing.");
+                    break;
+                case "requires_payment_method":
+                    setMessage("Your payment was not successful, please try again.");
+                    break;
+                default:
+                    setMessage("Something went wrong.");
+                    break;
+            }
+        });
+    }, [stripe]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (!stripe || !elements) {
-
+            // Stripe.js has not yet loaded.
+            // Make sure to disable form submission until Stripe.js has loaded.
             return;
         }
-        const card = elements.getElement(CardElement)
 
-        if (card === null) {
-            return;
-        }
-        const { error, paymentMethod } = await stripe.createPaymentMethod({
-            type: 'card',
-            card,
+        setIsLoading(true);
+
+        const { error } = await stripe.confirmPayment({
+            elements,
+            confirmParams: {
+                // Make sure to change this to your payment completion page
+                return_url: "http://localhost:3000",
+                receipt_email: user.email,
+            },
         });
-        if (error) {
-            // console.log(error);
-            setError(error.message);
+        if (error.type === "card_error" || error.type === "validation_error") {
+            setMessage(error.message);
+        } else {
+            setMessage("An unexpected error occured.");
         }
-        else {
-            setError('');
-            console.log(paymentMethod);
-        }
-    }
+
+        setIsLoading(false);
+    };
+
     return (
-        <div className="container p-2">
-            <form className='card-form' onSubmit={handleSubmit}>
-                <CardElement
-                    options={{
-                        style: {
-                            base: {
-                                fontSize: '16px',
-                                color: '#424770',
-                                '::placeholder': {
-                                    color: '#aab7c4',
-                                },
-                            },
-                            invalid: {
-                                color: '#9e2146',
-                            },
-                        },
-                    }}
-                />
-                <Button style={{ width: '100px' }} className=' p-2' type="submit" disabled={!stripe}>
-                    Pay ${price}
-                </Button>
+        <div className="container p-3">
+            <form id="payment-form" onSubmit={handleSubmit}>
+                <PaymentElement id="payment-element" />
+                <button disabled={isLoading || !stripe || !elements} id="submit">
+                    <span id="button-text">
+                        {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
+                    </span>
+                </button>
+                {/* Show any error or success messages */}
+                {message && <div id="payment-message">{message}</div>}
             </form>
-            {
-                error && <p style={{ color: 'red' }}>{error}</p>
-            }
         </div>
     );
 };

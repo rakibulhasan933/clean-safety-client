@@ -1,21 +1,59 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
-import { Elements } from '@stripe/react-stripe-js';
-import CheckoutFrom from './CheckoutFrom';
+import StripeCheckout from 'react-stripe-checkout';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
-const stripePromise = loadStripe('pk_test_51IhuABD4bG2KrznN6G9qymWo9qM6yo8CzOm8evK9ubKWvT2PG4z1jw37xbdA7vyIguPd9GYeSzJfhcVuIPwtKIoj00eW9mNYDw');
+const MySwal = withReactContent(Swal);
+
+const publishableKey = loadStripe('pk_test_51IhuABD4bG2KrznN6G9qymWo9qM6yo8CzOm8evK9ubKWvT2PG4z1jw37xbdA7vyIguPd9GYeSzJfhcVuIPwtKIoj00eW9mNYDw');
+
 
 const Payment = () => {
     const { id } = useParams();
     const [service, setService] = useState({});
-
     useEffect(() => {
         fetch(`http://localhost:5000/oder/${id}`)
             .then(res => res.json())
             .then(data => setService(data))
     }, [id]);
-    // console.log(service);
+    const handleSuccess = () => {
+        MySwal.fire({
+            icon: 'success',
+            title: 'Payment was successful',
+            time: 4000,
+        });
+    };
+    const handleFailure = () => {
+        MySwal.fire({
+            icon: 'error',
+            title: 'Payment was not successful',
+            time: 4000,
+        });
+    };
+
+    const payNow = async tok => {
+        try {
+            const response = await axios({
+                url: 'http://localhost:5000/payment',
+                method: 'post',
+                data: {
+                    amount: service.price * 100,
+                    tok,
+                },
+            });
+            if (response.status === 200) {
+                handleSuccess();
+            }
+        } catch (error) {
+            handleFailure();
+            console.log(error);
+        }
+    };
+    const priceForStripe = service.price * 100;
+
     return (
         <div className='py-2'>
             <div className="pb-2">
@@ -26,9 +64,16 @@ const Payment = () => {
                     <h4 className='fw-bold font-monospace'>Pay $ {service.price} </h4>
                 </div>
                 <div className="py-1">
-                    <Elements stripe={stripePromise}>
-                        <CheckoutFrom service={service} />
-                    </Elements>
+                    <StripeCheckout
+                        stripeKey={publishableKey}
+                        label="Pay Now"
+                        name="Pay With Credit Card"
+                        billingAddress
+                        shippingAddress
+                        amount={priceForStripe}
+                        description={`Your total is $${service.price}`}
+                        tok={payNow}
+                    />
                 </div>
             </div>
         </div>
