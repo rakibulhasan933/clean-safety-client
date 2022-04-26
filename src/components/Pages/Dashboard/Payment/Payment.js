@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
 import StripeCheckout from 'react-stripe-checkout';
 import axios from 'axios';
@@ -8,14 +8,14 @@ import withReactContent from 'sweetalert2-react-content';
 
 const MySwal = withReactContent(Swal);
 
-const publishableKey = loadStripe('pk_test_51IhuABD4bG2KrznN6G9qymWo9qM6yo8CzOm8evK9ubKWvT2PG4z1jw37xbdA7vyIguPd9GYeSzJfhcVuIPwtKIoj00eW9mNYDw');
+const publishableKey = 'pk_test_51IhuABD4bG2KrznN6G9qymWo9qM6yo8CzOm8evK9ubKWvT2PG4z1jw37xbdA7vyIguPd9GYeSzJfhcVuIPwtKIoj00eW9mNYDw';
 
 
 const Payment = () => {
     const { id } = useParams();
     const [service, setService] = useState({});
     useEffect(() => {
-        fetch(`http://localhost:5000/oder/${id}`)
+        fetch(`https://ancient-lowlands-84914.herokuapp.com/oder/${id}`)
             .then(res => res.json())
             .then(data => setService(data))
     }, [id]);
@@ -33,18 +33,29 @@ const Payment = () => {
             time: 4000,
         });
     };
+    const priceForStripe = service.price * 100;
 
-    const payNow = async tok => {
+    const payNow = async token => {
         try {
             const response = await axios({
-                url: 'http://localhost:5000/payment',
+                url: 'https://ancient-lowlands-84914.herokuapp.com/payment',
                 method: 'post',
                 data: {
                     amount: service.price * 100,
-                    tok,
+                    token,
                 },
             });
             if (response.status === 200) {
+                const url = `https://ancient-lowlands-84914.herokuapp.com/oder/${id}`
+                fetch(url, {
+                    method: 'PUT',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify({ id })
+                })
+                    .then(res => res.json())
+                    .then(data => console.log(data))
                 handleSuccess();
             }
         } catch (error) {
@@ -52,7 +63,6 @@ const Payment = () => {
             console.log(error);
         }
     };
-    const priceForStripe = service.price * 100;
 
     return (
         <div className='py-2'>
@@ -64,7 +74,7 @@ const Payment = () => {
                     <h4 className='fw-bold font-monospace'>Pay $ {service.price} </h4>
                 </div>
                 <div className="py-1">
-                    <StripeCheckout
+                    {service.payment ? <h4 className='fw-bold font-monospace'>Payment completed </h4> : <StripeCheckout
                         stripeKey={publishableKey}
                         label="Pay Now"
                         name="Pay With Credit Card"
@@ -72,8 +82,8 @@ const Payment = () => {
                         shippingAddress
                         amount={priceForStripe}
                         description={`Your total is $${service.price}`}
-                        tok={payNow}
-                    />
+                        token={payNow}
+                    />}
                 </div>
             </div>
         </div>

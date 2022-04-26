@@ -25,7 +25,7 @@ const Login = () => {
 
     const saveUser = (email, displayName) => {
         const user = { email, displayName };
-        fetch('http://localhost:5000/users', {
+        fetch('https://ancient-lowlands-84914.herokuapp.com/users', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

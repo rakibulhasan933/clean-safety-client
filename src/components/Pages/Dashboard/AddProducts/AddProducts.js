@@ -15,7 +15,7 @@ const AddProducts = () => {
             imageURL: data.imageURL
         }
         // console.log(serviceData);
-        axios.post('http://localhost:5000/services', serviceData)
+        axios.post('https://ancient-lowlands-84914.herokuapp.com/services', serviceData)
             .then(res => {
                 if (res.data.insertedId) {
                     Swal.fire({
