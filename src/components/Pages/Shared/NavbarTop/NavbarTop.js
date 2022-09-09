@@ -24,10 +24,11 @@ const NavbarTop = () => {
                         <Link className='font-monospace text-decoration-none' to='/'>Home</Link>
                     </Nav.Link>
                     <Nav.Link>
-                        <Link className='text-decoration-none font-monospace' to='/services'>Services</Link></Nav.Link>
-                    <Nav.Link>
-                        <Link className='text-decoration-none font-monospace' to='/dashboard'>Dashboard</Link>
+                        <Link className='text-decoration-none font-monospace' to='/services'>Services</Link>
                     </Nav.Link>
+                    {user.email && <Nav.Link>
+                        <Link className='text-decoration-none font-monospace' to='/dashboard'>Dashboard</Link>
+                    </Nav.Link>}
                     <Nav.Link>
                         <Link className='text-decoration-none font-monospace' to='/blogs'>Blogs</Link>
                     </Nav.Link>
